@@ -1,0 +1,6 @@
+@import "tailwind.css";
+
+.active{
+    background-color: rgb(19, 19, 104);
+    transition: 0.4s;
+}
