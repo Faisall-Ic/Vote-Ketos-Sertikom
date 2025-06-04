@@ -66,7 +66,6 @@ $current_page = basename($_SERVER['PHP_SELF']);
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-  // Seleksi semua tombol dengan class .btn-hapus
   const hapusButtons = document.querySelectorAll('.btn-hapus');
 
   hapusButtons.forEach(button => {

@@ -25,7 +25,6 @@ if (isset($_POST['simpan'])) {
     // Upload ke folder img/
     move_uploaded_file($tmp, "img/" . $foto);
   } else {
-    // Pakai foto lama kalau nggak diganti
     $foto = $ambil_data['foto'];
   }
   

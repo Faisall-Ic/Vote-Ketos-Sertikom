@@ -71,7 +71,7 @@ include "header.php";
     icon: "success",
     button: "OK"
   }).then(() => {
-    window.location.href = "admin.php"; // Ganti ke halaman tujuan
+    window.location.href = "admin.php"; 
   });
 </script>
 <?php elseif (isset($_GET['error']) && $_GET['error'] == '1'): ?>

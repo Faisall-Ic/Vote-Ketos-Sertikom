@@ -2,23 +2,22 @@
 $page_title = "Tambah Calon";
 include "koneksi.php";
 
-// Handle form submit
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $nama = $_POST["nama"];
     $visi = $_POST["visi"];
     $kelas = $_POST["kelas"];
     
-    // Proses file foto
+
     $foto = $_FILES['foto']['name'];
     $tmp = $_FILES['foto']['tmp_name'];
     $target_dir = "img/";
     
-    // Buat folder img jika belum ada
+
     if (!is_dir($target_dir)) {
       mkdir($target_dir, 0755, true);
     }
     
-    // Pindahkan file
+
     $upload = move_uploaded_file($tmp, $target_dir . $foto);
     
     if ($upload) {
@@ -40,7 +39,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   include "header.php";
 ?>
 
-<!-- HTML Form -->
 <div class="w-full px-4 py-6">
   <div class="bg-white shadow-md rounded-lg mb-6">
     <div class="border-b px-6 py-4">

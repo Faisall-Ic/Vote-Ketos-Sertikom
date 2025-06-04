@@ -10,12 +10,10 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $password = $_POST['password'];
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-    // Cek apakah username sudah ada
     $cek = mysqli_query($koneksi, "SELECT * FROM admin WHERE username='$username'");
     if (mysqli_num_rows($cek) > 0) {
         $error = "Username sudah terdaftar.";
     } else {
-        // Simpan ke database
         $query = "INSERT INTO admin (username, password, nama_lengkap) VALUES ('$username', '$hashedPassword', '$nama')";
         $result = mysqli_query($koneksi, $query);
         if ($result) {

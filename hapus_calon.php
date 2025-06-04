@@ -1,7 +1,6 @@
 <?php
 include "koneksi.php";
 
-// Cek apakah id_calon dikirim
 if (!isset($_GET['id_calon'])) {
     echo "<script>
         alert('ID Calon tidak ditemukan!');
@@ -12,17 +11,14 @@ if (!isset($_GET['id_calon'])) {
 
 $id_calon = $_GET['id_calon'];
 
-// Ambil nama file foto dari database
 $get_foto = mysqli_query($koneksi, "SELECT foto FROM calon WHERE id_calon='$id_calon'");
 $data = mysqli_fetch_assoc($get_foto);
 $nama_file = $data['foto'] ?? '';
 
-// Hapus file foto kalau ada
 if (!empty($nama_file) && file_exists("img/" . $nama_file)) {
     unlink("img/" . $nama_file);
 }
 
-// Hapus data dari database
 $hapus = mysqli_query($koneksi, "DELETE FROM calon WHERE id_calon='$id_calon'");
 ?>
 

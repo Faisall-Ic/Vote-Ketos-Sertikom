@@ -5,7 +5,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id_calon = $_POST["id_calon"];
     $nisn = $_POST["nisn"];
 
-    // Cek apakah NISN sudah pernah voting
     $cek = mysqli_query($koneksi, "SELECT * FROM voting WHERE nisn = '$nisn'");
     if (mysqli_num_rows($cek) > 0) {
         echo "<script>
@@ -79,7 +78,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             ?>
 
                 <label class="calon rounded-lg shadow-2xl/40 w-105 my-10">
-                    <!-- class="hidden peer" supaya radio button nya disembunyikan -->
                     <input type="radio" name="id_calon" value="<?= $data['id_calon'] ?>" class="hidden peer" required>
                     <div class="ps-30 pb-13 peer-checked:border-blue-500  peer-checked:scale-105 border-2 border-transparent p-4 rounded-xl shadow bg-white hover:shadow-xl/20 transition-all ">
                         <h1 class="absolute text-[320px] -ms-21 -mt-15 w-fit opacity-20"><?= $data['id_calon'] ?></h1>
